@@ -16,30 +16,50 @@ namespace BaggageAutomation
         /// <returns> a SqlConnection object</returns>
         public static SqlConnection GetConnection()
         {
-            SqlConnection conn = new SqlConnection(connstring);
+            SqlConnection conn = new SqlConnection(connString);
             conn.Open();
             return conn;
         }
 
         //remove bag
-        public static string DeliverLuggage(string luggageID, ref List<LuggageItem> currentList)
+        public static string LuggagePickup(string luggageID, SqlConnection conn, ref List<LuggageItem> currentList)
         {
-            string rQuery = "SELECT * FROM dbo.Baggage WHERE LuggageID =" + luggageID + ";";
+            string rQuery = "SELECT * FROM dbo.Luggage WHERE LuggageID =" + luggageID + ";";
+            SqlCommand rCommand = new SqlCommand(rQuery, conn);
+            SqlDataReader rdr = rCommand.ExecuteReader();
+            //LuggageItem _luggage =
+            string dQuery = "DELETE FROM dbo.Luggage WHERE LuggageID =" + luggageID + ";";
 
             return "";
         }
 
         //add bag
-        public static List<LuggageItem> LuggageArrived(List<LuggageItem> currentList)
+        public static LuggageItem[] LuggageArrived(SqlConnection conn, List<LuggageItem> currentList)
         {
 
-            return currentList;
+            //luggage is being scanned into airport table
+
+            string ID = "fake";
+            string airline = "fake";
+            string owner = "fake";
+            string location = "fake";
+
+
+            //scanner input
+
+            string iQuery = "INSERT INTO dbo.Luggage (LuggageID, Airline, Owner, Location) \nVALUES (" + ID + ", " + airline + ", " + owner + ", " + location + ");";
+            SqlCommand iCommand = new SqlCommand(iQuery, conn);
+            iCommand.ExecuteNonQuery();
+
+
+            return new LuggageItem[0];
+            //currentList.Add();
         }
 
-        public static List<LuggageItem> GetAllLuggage(SqlConnection conn)
+        public static LuggageItem[] GetAllLuggage(SqlConnection conn)
         {
-            List<LuggageItem> luggagelist = new List<LuggageItem>();
-            string lQuery = "SELECT * FROM dbo.Baggage";
+            LuggageItem[] luggageArr = new LuggageItem[64];           
+            string lQuery = "SELECT * FROM dbo.Luggage";
             SqlCommand lCommand = new SqlCommand(lQuery, conn);
             SqlDataReader rdr = lCommand.ExecuteReader();
             while (rdr.Read())
@@ -59,14 +79,15 @@ namespace BaggageAutomation
                             _luggage.Owner = rdr.GetString((int)row.ColumnOrdinal);
                             break;
                         case "Location":
-                            _luggage.Location = rdr.GetString ((int)row.ColumnOrdinal);
+                            _luggage.Location = rdr.GetInt32((int)row.ColumnOrdinal);
                             break;
                     }
                 }
-                luggagelist.Add(_luggage);
+                luggageArr[_luggage.Location] = _luggage;
+
             }
 
-            return luggagelist;
+            return luggageArr;
         }
         
     }

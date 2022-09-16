@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BaggageAutomation
 {
+
     public class LuggageItem
     {
         public LuggageItem() { }
-        public LuggageItem(string luggageID, string airline, string owner, string location)
+        public LuggageItem(string luggageID, string airline, string owner, int location)
         {
             LuggageID = luggageID;
             Airline = airline;
@@ -20,6 +21,7 @@ namespace BaggageAutomation
         public string LuggageID { get; set; }
         public string Airline { get; set; }
         public string Owner { get; set; }
-        public string Location { get; set; }
+        public int Location { get; set; }
+
     }
 }
