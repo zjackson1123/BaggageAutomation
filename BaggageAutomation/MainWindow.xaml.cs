@@ -15,11 +15,8 @@ namespace BaggageAutomation
         public MainWindow()
         {
             InitializeComponent();
-            List<LuggageItem> AllLuggage = GetAllLuggage(Conn);
-            foreach(LuggageItem item in AllLuggage)
-            {
-                MessageBox.Show(item.LuggageID + "\n" + item.Airline + "\n" + item.Owner + "\n" + item.Location);
-            }          
+            LuggageItem[] AllLuggage = GetAllLuggage(Conn);
+                 
         }
 
         private void Scan_Btn_Click(object sender, RoutedEventArgs e)
