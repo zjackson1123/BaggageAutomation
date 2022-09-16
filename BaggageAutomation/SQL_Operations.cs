@@ -55,14 +55,7 @@ namespace BaggageAutomation
             SqlCommand iCommand = new SqlCommand(iQuery, conn);
             iCommand.ExecuteNonQuery();
             LuggageItem dadada = new LuggageItem(LuggageID, airline, owner, location);
-            for(int i = 0; i < currentArr.Length; i++)
-            {
-                if(currentArr[i] != null)
-                {
-                    currentArr[i] = dadada;
-                    break;
-                }
-            }
+           
 
             return currentArr;
             //currentList.Add();

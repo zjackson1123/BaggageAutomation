@@ -8,6 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF36393E">
         <Button x:Name="Scan_Btn" Content="Scan QR Code" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" Click="Scan_Btn_Click"/>
+        <Button x:Name="QRGeneration" Content="Generate QRCode" HorizontalAlignment="Left" Margin="86,347,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.205,0.016" AutomationProperties.IsColumnHeader="True" Click="Button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.694"/>
+                    <TranslateTransform X="-0.106" Y="1.777"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Image x:Name="ImageBox" HorizontalAlignment="Left" Height="183" Margin="281,42,0,0" VerticalAlignment="Top" Width="218"/>
 
     </Grid>
 </Window>
