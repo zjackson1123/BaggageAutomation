@@ -4,26 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using static BaggageAutomation.SQLstring;
 
 namespace BaggageAutomation
 {
     internal class SQL_Operations
     {
+        /// <summary>
+        /// gets sql connection for global variable assignment
+        /// </summary>
+        /// <returns> a SqlConnection object</returns>
         public static SqlConnection GetConnection()
         {
-            string constring = @"Server=localhost\MSSQLSERVER01;Database=DB1;Trusted_Connection=True;";
-            SqlConnection conn = new SqlConnection(constring);
+            SqlConnection conn = new SqlConnection(connstring);
             conn.Open();
             return conn;
         }
 
-        public static string DeliverLuggage(string luggageID, List<LuggageItem> currentList)
+        //remove bag
+        public static string DeliverLuggage(string luggageID, ref List<LuggageItem> currentList)
         {
             string rQuery = "SELECT * FROM dbo.Baggage WHERE LuggageID =" + luggageID + ";";
 
             return "";
         }
 
+        //add bag
         public static List<LuggageItem> LuggageArrived(List<LuggageItem> currentList)
         {
 
