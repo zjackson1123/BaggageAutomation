@@ -53,6 +53,118 @@
           }
         }
       },
+      "Emgu.CV.runtime.windows/4.5.5.4823": {
+        "dependencies": {
+          "Emgu.CV": "4.5.5.4823",
+          "Emgu.runtime.windows.msvc.rt.x64": "19.29.30138",
+          "Emgu.runtime.windows.msvc.rt.x86": "19.29.30138"
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/cvextern.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "4.5.5.4823"
+          },
+          "runtimes/win-x64/native/opencv_videoio_ffmpeg455_64.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "2021.12.0.0"
+          },
+          "runtimes/win-x86/native/cvextern.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "4.5.5.4823"
+          },
+          "runtimes/win-x86/native/opencv_videoio_ffmpeg455.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "2021.12.0.0"
+          }
+        }
+      },
+      "Emgu.runtime.windows.msvc.rt.x64/19.29.30138": {
+        "runtimeTargets": {
+          "runtimes/win-x64/native/concrt140.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/msvcp140.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/msvcp140_1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/msvcp140_2.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/msvcp140_atomic_wait.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/msvcp140_codecvt_ids.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/vcruntime140.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x64/native/vcruntime140_1.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          }
+        }
+      },
+      "Emgu.runtime.windows.msvc.rt.x86/19.29.30138": {
+        "runtimeTargets": {
+          "runtimes/win-x86/native/concrt140.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x86/native/msvcp140.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x86/native/msvcp140_1.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x86/native/msvcp140_2.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x86/native/msvcp140_atomic_wait.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x86/native/msvcp140_codecvt_ids.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          },
+          "runtimes/win-x86/native/vcruntime140.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "14.29.30135.0"
+          }
+        }
+      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -659,6 +771,14 @@
             "fileVersion": "5.0.20.51904"
           }
         }
+      },
+      "ZXing.Net/0.16.8": {
+        "runtime": {
+          "lib/net6.0/zxing.dll": {
+            "assemblyVersion": "0.16.8.0",
+            "fileVersion": "0.16.8.0"
+          }
+        }
       }
     }
   },
@@ -683,6 +803,27 @@
       "sha512": "sha512-TmiMwyjh1/WZwnjNFF2PZmenI1cZqjtm6l9/8icXk7MMGwkd19DqX7s9igSgIgzqQqYXABW6ECOi56GbNTJHJA==",
       "path": "emgu.cv/4.5.5.4823",
       "hashPath": "emgu.cv.4.5.5.4823.nupkg.sha512"
+    },
+    "Emgu.CV.runtime.windows/4.5.5.4823": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-RfPAsh/zB9gDG8B8BqS1bgqNBn9d8croL0neZ5V1k1IWmEFtJvs+BBg6NF/YT+2eefB/w0kahFrv9P1PLBiy8g==",
+      "path": "emgu.cv.runtime.windows/4.5.5.4823",
+      "hashPath": "emgu.cv.runtime.windows.4.5.5.4823.nupkg.sha512"
+    },
+    "Emgu.runtime.windows.msvc.rt.x64/19.29.30138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9eAg+DP9V/i49HYVex9RnhVK7emK4DsdJVb/wzBiPtAA7cRiw2eb1R22hafg89F/EHFPffqYc7fb4B6PvoGXeQ==",
+      "path": "emgu.runtime.windows.msvc.rt.x64/19.29.30138",
+      "hashPath": "emgu.runtime.windows.msvc.rt.x64.19.29.30138.nupkg.sha512"
+    },
+    "Emgu.runtime.windows.msvc.rt.x86/19.29.30138": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/kkz66AROssDbzgXR5UyVnxvQ/bE22voerybxNdqFr1jJjCERet77rLqmvJI/dqCHDa4oTpwLY77B5MfPM48kg==",
+      "path": "emgu.runtime.windows.msvc.rt.x86/19.29.30138",
+      "hashPath": "emgu.runtime.windows.msvc.rt.x86.19.29.30138.nupkg.sha512"
     },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
@@ -1054,6 +1195,13 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "ZXing.Net/0.16.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Cbbe+x7I7E+VJ0VxU1fPc7AktIw/9xea/ZY/fh38sXqTQ75LJp9ooGUjpzFqfpPfIKozAoXgJ4yvY4GzKpPBzQ==",
+      "path": "zxing.net/0.16.8",
+      "hashPath": "zxing.net.0.16.8.nupkg.sha512"
     }
   }
 }

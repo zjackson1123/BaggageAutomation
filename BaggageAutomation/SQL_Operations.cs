@@ -21,7 +21,6 @@ namespace BaggageAutomation
             return conn;
         }
 
-        //remove bag
         public static string LuggagePickup(LuggageItem[] UserLuggage, SqlConnection conn, ref LuggageItem[] currentArr)
         {
             int[] Locations = new int[UserLuggage.Length];
@@ -40,11 +39,10 @@ namespace BaggageAutomation
             return "";
         }
 
-        //add bag
+
         public static LuggageItem[] LuggageArrived(SqlConnection conn, LuggageItem[] currentArr)
         {
-
-            //luggage is being scanned into airport table            
+          
             string ID = "tempLID1";
             string airline = "tempAirline1";
             string owner = "tempOwner1";
