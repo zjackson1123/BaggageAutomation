@@ -35,9 +35,21 @@ namespace BaggageAutomation{
         }
         private void Complete_Click(object sender, object e)
         {
-            Ticket.Airline = AirlineComboBox.SelectedValue.ToString();
-            Ticket.Name = NameText.Text;
-            this.Close();
+            if(NameText.Text == String.Empty)
+            {
+                NameErrLbl.Visibility = Visibility.Visible;
+                return;
+            }
+            else
+            {
+                NameErrLbl.Visibility = Visibility.Hidden;
+                Ticket.Airline = AirlineComboBox.Text;
+                Ticket.Name = NameText.Text;
+                this.Close();
+            }
+           
+           
+            
         }
     }
 }

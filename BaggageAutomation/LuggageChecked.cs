@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Drawing.Imaging;
 using System.Xaml.Schema;
+using System.Windows;
 
 namespace BaggageAutomation
 {
@@ -29,16 +30,20 @@ namespace BaggageAutomation
         }
         public static void LocFind(ref LuggageItem[] currentArr, out int? index)
         {
+            index = null;
             for (int i = 0; i < currentArr.Length; i++)
             {
                 if (currentArr[i] != null)
                 {
                     currentArr[i] = new LuggageItem();
                     index = i;
-                }
-
+                    break;
+                }                
             }
-            index = null;
+            if(index == null)
+            {
+                MessageBox.Show("No Locations Remain in Destination Airport");
+            }
         }
         public static BitmapImage QRGeneration(LuggageItem lug)
         {
