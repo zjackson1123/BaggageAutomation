@@ -1,34 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
+﻿using System.Windows;
+using static BaggageAutomation.SQL.SQL_Operations;
+using static BaggageAutomation.Luggage.LuggageChecked;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using Microsoft.Data.SqlClient;
-using static BaggageAutomation.SQL_Operations;
-using static BaggageAutomation.LuggageChecked;
 
 namespace BaggageAutomation
 {
     public partial class StartFlight : Window
     {
-        public StartFlight(string filepath)
+        public string Filepath;
+        public BitmapImage QRImg;
+        public StartFlight(string filepath, BitmapImage QRimg)
         {
             InitializeComponent();
-            //calls arrival
+            QRcodeimg.Stretch = System.Windows.Media.Stretch.Fill;
+            QRcodeimg.Source = QRimg;
+            QRImg = QRimg;
+            QRcodeLbl.Content = "Here we have the QR code generated from your ticket information!";
+            Filepath = filepath;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            Arrival arr = new(Filepath, QRImg);
+            arr.WindowState = WindowState.Maximized;
             this.Close();
+            arr.ShowDialog();
+           
            
         }
     }

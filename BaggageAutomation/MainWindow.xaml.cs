@@ -1,10 +1,10 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Windows;
 using Microsoft.Win32;
-using static BaggageAutomation.SQL_Operations;
+using static BaggageAutomation.SQL.SQL_Operations;
 using ZXing;
 using ZXing.Common;
-using static BaggageAutomation.LuggageChecked;
+using static BaggageAutomation.Luggage.LuggageChecked;
 
 namespace BaggageAutomation
 {

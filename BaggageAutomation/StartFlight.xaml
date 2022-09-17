@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="StartFlight" Height="450" Width="800">
     <Grid Background="#FF272537">
-        <Label Content="Thank you for purchasing your ticket!" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label Content="Please click on the button below when you being your travels!" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Thank you for purchasing your ticket!" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Please click on the button below when you're ready to begin your travels!" HorizontalAlignment="Center" Margin="0,97,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button Content="Start Travel" Style="{StaticResource round_Btn}" HorizontalAlignment="Center" Margin="0,367,0,0" VerticalAlignment="Top" Height="57" Width="144" Click="Button_Click"/>
+        <Image x:Name="QRcodeimg" HorizontalAlignment="Center" VerticalAlignment="Top" Width="187" Height="189" Margin="0,135,0,0"/>
+        <Label x:Name="QRcodeLbl" Content="" HorizontalAlignment="Center" Margin="0,322,0,0" VerticalAlignment="Top" Width="207" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
 
     </Grid>
 </Window>

@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="Arrival" Height="450" Width="800">
     <Grid Background="#FF272537">
-        <Label x:Name="WelcomeLbl" Content="" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="311" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label x:Name="OwnerLbl" Content="" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="311" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Button Content="Button" Style="{StaticResource round_Btn}" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Click="Button_Click" Height="49" Width="124"/>
+        <Label x:Name="WelcomeLbl" Content="" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="311" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="OwnerLbl" Content="" HorizontalAlignment="Center" Margin="0,95,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="311" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Content="Please Scan Your Ticket" Style="{StaticResource round_Btn}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="Button_Click" Height="49" Width="157" Margin="0,0,0,10"/>
+        <Image x:Name="attachedQRimg" HorizontalAlignment="Center" Height="636" VerticalAlignment="Top" Width="639" Margin="0,148,0,0"/>
+        <Label x:Name="attachedQRlbl" Content="" HorizontalAlignment="Center" Margin="0,785,0,0" VerticalAlignment="Top" Width="500" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
     </Grid>
 </Window>

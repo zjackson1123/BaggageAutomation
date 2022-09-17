@@ -6,7 +6,7 @@ using ZXing;
 using System.Windows.Media.Imaging;
 using System.Linq;
 
-namespace BaggageAutomation
+namespace BaggageAutomation.QRcode
 {
     internal class ScanQRCode
     {
@@ -17,7 +17,7 @@ namespace BaggageAutomation
             //dialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;";
             //if (dialog.ShowDialog() == true)
             //{
-            System.DrawingCore.Bitmap bitmap = (System.DrawingCore.Bitmap)System.DrawingCore.Bitmap.FromFile(filepath);
+            System.DrawingCore.Bitmap bitmap = (System.DrawingCore.Bitmap)System.DrawingCore.Image.FromFile(filepath);
             LuminanceSource ls;
             ls = new ZXing.ZKWeb.BitmapLuminanceSource(bitmap);
             var binarizer = new HybridBinarizer(ls);
@@ -25,10 +25,10 @@ namespace BaggageAutomation
             var result = new MultiFormatReader().decode(binarybmp);
             if (result != null)
             {
-                string[] DecodedQR= result.ToString().Split("|").ToArray();
+                string[] DecodedQR = result.ToString().Split("|").ToArray();
                 return DecodedQR;
             }
-            else { return new string[] {"Unable to read QR Code"}; }
+            else { return new string[] { "Unable to read QR Code" }; }
             //}
 
         }

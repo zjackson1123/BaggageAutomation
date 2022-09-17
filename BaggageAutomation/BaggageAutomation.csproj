@@ -17,4 +17,12 @@
     <PackageReference Include="ZXing.Net.Bindings.ZKWeb.System.Drawing" Version="0.16.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Include="App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Windows\" />
+  </ItemGroup>
+
 </Project>

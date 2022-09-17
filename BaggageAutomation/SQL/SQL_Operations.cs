@@ -1,11 +1,12 @@
-﻿using Microsoft.Data.SqlClient;
-using System;
-using System.Windows.Media.Imaging;
-using static BaggageAutomation.SQLstring;
-
-namespace BaggageAutomation
-{
+﻿#pragma warning disable CS8618
 #pragma warning disable CS8629
+using BaggageAutomation.Luggage;
+using Microsoft.Data.SqlClient;
+using System;
+using static BaggageAutomation.SQL.SQLstring;
+
+namespace BaggageAutomation.SQL
+{
     internal class SQL_Operations
     {
         public static SqlConnection sqlConnection = new SqlConnection(connString);
@@ -13,22 +14,22 @@ namespace BaggageAutomation
 
         public static string LuggagePickup(SqlConnection conn, LuggageDataItem storedLuggage)
         {
-            string rQuery = "SELECT * FROM dbo.Luggage WHERE LuggageID =" + storedLuggage.LuggageID + ";";
+            string rQuery = "SELECT * FROM dbo.Luggage WHERE LuggageID ='" + storedLuggage.LuggageID + "';";
             SqlCommand rCommand = new SqlCommand(rQuery, conn);
             SqlDataReader rdr = rCommand.ExecuteReader();
             rdr.Read();
-            string LuggageOwner = rdr.GetString(rdr.GetOrdinal("Owner"));
-            string dQuery = "DELETE FROM dbo.Luggage WHERE LuggageID =" + storedLuggage.LuggageID + ";";
+            string LuggageOwner = rdr.GetString(2);
+            rdr.Close();
+            string dQuery = "DELETE FROM dbo.Luggage WHERE LuggageID ='" + storedLuggage.LuggageID + "';";
             SqlCommand dCommand = new SqlCommand(dQuery, conn);
             dCommand.ExecuteNonQuery();
-            rdr.Close();
             return LuggageOwner;
         }
 
         public static LuggageDataItem LuggageAtDest(SqlConnection conn, string[] dQR)
         {
             //QR code scanned as luggage arrives at destination airport
-            LuggageDataItem _lug = new LuggageDataItem(dQR[0], dQR[1], dQR[2], Convert.ToInt32(dQR[3]));
+            LuggageDataItem _lug = new LuggageDataItem(dQR[0], dQR[1], dQR[2], Convert.ToInt32(dQR[3]), dQR[4]);
             string iQuery = "INSERT INTO dbo.Luggage (LuggageID, Airline, Owner, Location) " +
                 "\nVALUES ('" + _lug.LuggageID + "', '" + _lug.Airline + "', '" + _lug.Owner + "', '" + _lug.Location + "');";
             SqlCommand iCommand = new SqlCommand(iQuery, conn);

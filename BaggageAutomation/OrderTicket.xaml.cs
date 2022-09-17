@@ -1,69 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿#pragma warning disable CS8618
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static BaggageAutomation.SQL_Operations;
-using static BaggageAutomation.LuggageChecked;
-using Microsoft.Data.SqlClient;
-using System.Security.RightsManagement;
-using System.ComponentModel;
-using System.Windows.Automation;
+using static BaggageAutomation.Luggage.LuggageChecked;
 
 namespace BaggageAutomation
 {
-#pragma warning disable CS8601
     /// <summary>
     /// Interaction logic for OrderTicket.xaml
     /// </summary>
     public partial class OrderTicket : Window
     {
-        public Ticket ticket;
+        public Ticket ticket = new();
         public OrderTicket()
         {
-            InitializeComponent();        
+            InitializeComponent();
         }
         public class Ticket
         {
-            //public Guid TicketID = Guid.NewGuid();
             public string Airline { get; set; }
             public string Name { get; set; }
             public string Destination { get; set; }
-        }     
+        }
+
+        public class ValidInput
+        {
+            public ValidInput(string name, string airline, string destination)
+            {
+                Name = name;
+                Airline = airline;
+                Destination = destination;
+                if (name != string.Empty)
+                {
+                    NameValid = true;
+                }
+                if (airline != string.Empty)
+                {
+                    AirlineValid = true;
+                }
+                if (Destination != string.Empty)
+                {
+                    DestinationValid = true;
+                }
+            }
+            public bool NameValid = false;
+            public string Name;
+            public bool AirlineValid = false;
+            public string Airline;
+            public bool DestinationValid = false;
+            public string Destination;
+        }
 
         private void Complete_Click(object sender, RoutedEventArgs e)
         {
-            string[] ticketInfo = new string[] { NameText.Text, AirlineComboBox.Text, DestinationTextBox.Text };
-            bool validInput = true;
-            for (int i = 0; i < ticketInfo.Length; i++)
+            ValidInput validInput = new ValidInput(NameText.Text, AirlineComboBox.Text, DestinationTextBox.Text);
+            if (!validInput.NameValid) { NameErrLbl.Visibility = Visibility.Visible; }
+            if (!validInput.AirlineValid) { AirlineErrLbl.Visibility = Visibility.Visible; }
+            if (!validInput.DestinationValid) { DestinationErrLbl.Visibility = Visibility.Visible; }
+            if (validInput.DestinationValid && validInput.AirlineValid && validInput.NameValid)
             {
-                if (ticketInfo[i] == string.Empty)
+                ticket.Name = validInput.Name;
+                ticket.Airline = validInput.Airline;
+                ticket.Destination = validInput.Destination;
+                string filepath = CheckedIn(ticket, out BitmapImage QRcode);
+                StartFlight sf = new(filepath, QRcode)
                 {
-                    validInput = false;
-                }
+                    WindowState = WindowState.Maximized
+                };
+                this.Close();
+                sf.ShowDialog();
             }
-            if (validInput)
-            {
-                ticket.Name = ticketInfo[0];
-                ticket.Airline = ticketInfo[1];
-                ticket.Destination = ticketInfo[2];
-                string filepath = CheckedIn(ticket);           
-            }
-
-            Ticket.Airline = AirlineComboBox.Text;
-            Ticket.Name = NameText.Text;
-            StartFlight sf = new StartFlight();
-            sf.WindowState = WindowState.Maximized;
-            this.Close();
-            sf.ShowDialog();
         }
     }
 }

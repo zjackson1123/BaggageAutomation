@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaggageAutomation
+namespace BaggageAutomation.Luggage
 {
 #pragma warning disable CS8618
     public class LuggageDataItem
@@ -16,7 +16,7 @@ namespace BaggageAutomation
             Airline = airline;
             Owner = owner;
             Location = location;
-            if(destination != null) { Destination = destination.ToString(); }         
+            if (destination != null) { Destination = destination.ToString(); }
         }
 
         public string LuggageID { get; set; }
