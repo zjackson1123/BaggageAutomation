@@ -33,9 +33,9 @@ namespace BaggageAutomation{
         {
             InitializeComponent();
         }
-        private void Complete_Click(object sender, object e)
+        private void Complete_Click(object sender, RoutedEventArgs e)
         {
-            if(NameText.Text == String.Empty)
+            if (NameText.Text == String.Empty)
             {
                 NameErrLbl.Visibility = Visibility.Visible;
                 return;
@@ -47,9 +47,9 @@ namespace BaggageAutomation{
                 Ticket.Name = NameText.Text;
                 this.Close();
             }
-           
-           
-            
+            Ticket.Airline = AirlineComboBox.Text;
+            Ticket.Name = NameText.Text;
+            this.Close();
         }
     }
 }

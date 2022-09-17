@@ -7,15 +7,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Arrival.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="OrderTicket.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="StartFlight.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Arrival.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="OrderTicket.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="StartFlight.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

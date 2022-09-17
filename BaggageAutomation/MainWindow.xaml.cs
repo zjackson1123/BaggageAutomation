@@ -18,6 +18,7 @@ using System.Windows.Controls;
 using System.Text;
 using ZXing.QrCode;
 using ZXing.Common;
+using static BaggageAutomation.LuggageChecked;
 
 namespace BaggageAutomation
 {
@@ -65,8 +66,6 @@ namespace BaggageAutomation
             ot.ShowDialog();
             string Name = OrderTicket.Ticket.Name;
             string Airline = OrderTicket.Ticket.Airline;
-            //ImageBox.Source = CheckedIn(ref AllLuggage, Airline, Name);
-
         }
     }
 }

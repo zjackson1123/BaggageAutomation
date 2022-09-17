@@ -1,0 +1,15 @@
+﻿<Window x:Class="BaggageAutomation.StartFlight"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BaggageAutomation"
+        mc:Ignorable="d"
+        Title="StartFlight" Height="450" Width="800">
+    <Grid Background="#FF272537">
+        <Label Content="Thank you for purchasing your ticket!" HorizontalAlignment="Center" Margin="0,90,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Please click on the button below when you being your travels!" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button Content="Start Travel" Style="{StaticResource round_Btn}" HorizontalAlignment="Center" Margin="0,367,0,0" VerticalAlignment="Top" Height="57" Width="144" Click="Button_Click"/>
+
+    </Grid>
+</Window>
