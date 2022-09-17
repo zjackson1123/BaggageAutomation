@@ -1,5 +1,5 @@
 # BaggageAutomation
-Repository for KSU Fall 2022 Hackathon - Airport Luggage Automated Retrieval
+                    Repository for KSU Fall 2022 Hackathon - Airport Luggage Automated Retrieval
 This repository serves as a home for our team's solution to airport carousels.
 We currently have the solution implemented as a WPF project in Visual Studio 2022,
 with hopes to move it to a web-based project given the time. The general flow of the
