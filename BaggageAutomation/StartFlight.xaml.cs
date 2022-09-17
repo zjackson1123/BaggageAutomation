@@ -19,14 +19,17 @@ namespace BaggageAutomation
 {
     public partial class StartFlight : Window
     {
-        public StartFlight()
+        public StartFlight(string filepath)
         {
             InitializeComponent();
+            //calls arrival
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             this.Close();
+           
         }
     }
 }

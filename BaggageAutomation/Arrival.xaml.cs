@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using DocumentFormat.OpenXml.Spreadsheet;
+using static BaggageAutomation.SQL_Operations;
+using static BaggageAutomation.ScanQRCode;
+
 
 namespace BaggageAutomation
 {
@@ -20,14 +10,22 @@ namespace BaggageAutomation
     /// </summary>
     public partial class Arrival : Window
     {
-        public Arrival()
-        {
+        LuggageDataItem storedLuggage;
+        public Arrival(string filepath)
+        {           
+            storedLuggage = LuggageAtDest(sqlConnection, Decode(filepath));
+            string welcometext = "Welcome to " + storedLuggage.Destination + "!";
+            WelcomeLbl.Content = welcometext;
             InitializeComponent();
         }
         this.Controls.Find(ArrivalText).Text = Value;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            if(storedLuggage != null) 
+            {
+                string owner = LuggagePickup(sqlConnection, storedLuggage);
+                OwnerLbl.Content = owner;
+            }
         }
     }
 }

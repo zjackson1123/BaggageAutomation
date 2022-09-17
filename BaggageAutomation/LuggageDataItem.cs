@@ -10,18 +10,19 @@ namespace BaggageAutomation
     public class LuggageDataItem
     {
         public LuggageDataItem() { }
-        public LuggageDataItem(string luggageID, string airline, string owner, int location)
+        public LuggageDataItem(string luggageID, string airline, string owner, int location, string? destination = null)
         {
             LuggageID = luggageID;
             Airline = airline;
             Owner = owner;
             Location = location;
+            if(destination != null) { Destination = destination.ToString(); }         
         }
 
         public string LuggageID { get; set; }
         public string Airline { get; set; }
         public string Owner { get; set; }
         public int Location { get; set; }
-
+        public string Destination { get; set; }
     }
 }

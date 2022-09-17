@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="Arrival" Height="450" Width="800">
     <Grid Background="#FF272537">
-        <Label Content="Label" HorizontalAlignment="Left" Margin="373,67,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Button Content="Button" Style="{StaticResource round_Btn}" HorizontalAlignment="Left" Margin="372,0,0,36" VerticalAlignment="Bottom" Click="Button_Click"/>
+        <Label x:Name="WelcomeLbl" Content="" HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="311" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="OwnerLbl" Content="" HorizontalAlignment="Center" Margin="0,138,0,0" VerticalAlignment="Top" Foreground="White" Height="51" Width="311" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Content="Button" Style="{StaticResource round_Btn}" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Click="Button_Click" Height="49" Width="124"/>
 
     </Grid>
 </Window>
