@@ -18,7 +18,6 @@ namespace BaggageAutomation.Luggage
             Location = location;
             if (destination != null) { Destination = destination.ToString(); }
         }
-
         public string LuggageID { get; set; }
         public string Airline { get; set; }
         public string Owner { get; set; }

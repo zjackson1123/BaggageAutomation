@@ -22,7 +22,7 @@
         <TextBox x:Name="DestinationTextBox" HorizontalAlignment="Left" Margin="145,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163" Height="20"/>
         <Button x:Name="Complete" Content="Complete" HorizontalAlignment="Left" Margin="191,320,0,0" Style="{StaticResource round_Btn}" VerticalAlignment="Top" Width="101" ButtonBase.Click="Complete_Click"/>
         <TextBox x:Name="NameText" HorizontalAlignment="Left" Margin="145,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="163" Height="20"/>
-        <Label x:Name="NameErrLbl" Content="Please Enter a First and Last name(A-Z)" HorizontalAlignment="Left" Margin="53,73,0,0" VerticalAlignment="Top" Width="255" Height="30" Visibility="Hidden" Foreground="#FFED2727" FontSize="14"/>
+        <Label x:Name="NameErrLbl" Content="Please Enter a First and Last name(A-Z)" HorizontalAlignment="Left" Margin="112,73,0,0" VerticalAlignment="Top" Width="255" Height="30" Visibility="Hidden" Foreground="#FFED2727" FontSize="14"/>
         <Label x:Name="AirlineErrLbl" Content="Please Select your desired Airline" HorizontalAlignment="Left" Margin="112,143,0,0" VerticalAlignment="Top" Width="255" Height="30" Visibility="Hidden" Foreground="#FFED2727" FontSize="14"/>
         <Label x:Name="DestinationErrLbl" Content="Please Enter Your Destination" HorizontalAlignment="Left" Margin="112,196,0,0" VerticalAlignment="Top" Width="255" Height="30" Visibility="Hidden" Foreground="#FFED2727" FontSize="14"/>
     </Grid>

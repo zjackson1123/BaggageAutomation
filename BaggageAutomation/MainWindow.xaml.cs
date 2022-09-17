@@ -22,11 +22,6 @@ namespace BaggageAutomation
             this.WindowState = WindowState.Maximized;
         }
 
-        private void Scan_Btn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OrderTicket ot = new OrderTicket();
