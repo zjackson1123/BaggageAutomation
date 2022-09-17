@@ -28,22 +28,10 @@ namespace BaggageAutomation
     public partial class MainWindow : Window
     {
         public static SqlConnection Conn = GetConnection();
+        public static LuggageItem[] AllLuggage = GetAllLuggage(Conn);
         public MainWindow()
         {
             InitializeComponent();
-            LuggageItem[] AllLuggage = GetAllLuggage(Conn);
-            
-        }
-
-        private static byte[] GetByteArray(System.Drawing.Image img)
-        {
-            byte[] toReturn = new byte[0];
-            using (MemoryStream ms = new MemoryStream())
-            {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                toReturn = ms.ToArray();
-            }
-            return toReturn;
         }
 
         private void Scan_Btn_Click(object sender, RoutedEventArgs e)
@@ -55,21 +43,15 @@ namespace BaggageAutomation
             {
                 foreach (string filename in dialog.FileNames)
                 {
-                    System.Drawing.Bitmap img = (Bitmap)System.Drawing.Bitmap.FromFile(filename);                 
-                    BitmapImage _bmp = new BitmapImage();
-                    _bmp.BeginInit();
-                    _bmp.UriSource = new Uri(filename, UriKind.Absolute);
-                    _bmp.EndInit();
-                    var Wbmp = new WriteableBitmap(_bmp);                                   
-                    QRCodeReader reader = new QRCodeReader();                    
-                    ImageConverter conv = new ImageConverter();                                   
-                    LuminanceSource ls = new RGBLuminanceSource(GetByteArray(img), img.Width, img.Height);
+                    System.DrawingCore.Bitmap bitmap = (System.DrawingCore.Bitmap)System.DrawingCore.Bitmap.FromFile(filename);
+                    LuminanceSource ls;
+                    ls = new ZXing.ZKWeb.BitmapLuminanceSource(bitmap);
                     var binarizer = new HybridBinarizer(ls);
                     var binarybmp = new BinaryBitmap(binarizer);
-                    string result = reader.decode(binarybmp).Text;
-                    
-                    
-                    MessageBox.Show(result);
+                    var result = new MultiFormatReader().decode(binarybmp);
+                    if (result != null) { MessageBox.Show(result.ToString()); }
+                    else { MessageBox.Show("No Result"); }
+
                 }
             }
 

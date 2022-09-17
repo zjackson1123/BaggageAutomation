@@ -8,6 +8,7 @@ using static BaggageAutomation.SQLstring;
 
 namespace BaggageAutomation
 {
+#pragma warning disable CS8629
     internal class SQL_Operations
     {
         /// <summary>
@@ -21,7 +22,6 @@ namespace BaggageAutomation
             return conn;
         }
 
-        //remove bag
         public static int[] LuggagePickup(LuggageItem[] UserLuggage, SqlConnection conn, ref LuggageItem[] currentArr)
         {
             int[] LocationInt = new int[UserLuggage.Length];
@@ -41,24 +41,16 @@ namespace BaggageAutomation
             return LocationInt;
         }
 
-        //add bag
-        public static LuggageItem[] LuggageArrived(SqlConnection conn, LuggageItem[] currentArr)
+        public static LuggageItem[] LuggageAtDest(SqlConnection conn, LuggageItem[] currentArr)
         {
-
-            string LuggageID = "fake";
-            string airline = "fake";
-            string owner = "fake";
-            int location = 17;
-            //scanner input
-
-            string iQuery = "INSERT INTO dbo.Luggage (LuggageID, Airline, Owner, Location) \nVALUES ('" + LuggageID + "', '" + airline + "', '" + owner + "', '" + location + "');";
+            //QR code scanned as luggage arrives at destination airport
+            LuggageItem _lug = new LuggageItem("id", "airline", "owner", 10);
+            string iQuery = "INSERT INTO dbo.Luggage (LuggageID, Airline, Owner, Location) " +
+                "\nVALUES ('" + _lug.LuggageID + "', '" + _lug.Airline + "', '" + _lug.Owner + "', '" + _lug.Location + "');";
             SqlCommand iCommand = new SqlCommand(iQuery, conn);
             iCommand.ExecuteNonQuery();
-            LuggageItem dadada = new LuggageItem(LuggageID, airline, owner, location);
-           
-
-            return currentArr;
-            //currentList.Add();
+            currentArr[_lug.Location] = _lug;  
+            return currentArr;            
         }
 
         public static LuggageItem[] GetAllLuggage(SqlConnection conn)
