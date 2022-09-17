@@ -31,6 +31,7 @@ namespace BaggageAutomation
             }
             return QRGeneration(lug);
         }
+        
         public static void LocFind(out int? index)
         {
             index = null;
@@ -48,6 +49,7 @@ namespace BaggageAutomation
                 MessageBox.Show("No Locations Remain in Destination Airport");
             }
         }
+        
         public static string QRGeneration(LuggageDataItem lug)
         {
 

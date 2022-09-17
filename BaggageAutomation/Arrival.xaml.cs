@@ -1,6 +1,7 @@
-﻿using System.Windows;
+using System.Windows;
 using static BaggageAutomation.SQL_Operations;
 using static BaggageAutomation.ScanQRCode;
+
 
 namespace BaggageAutomation
 {
@@ -17,7 +18,7 @@ namespace BaggageAutomation
             WelcomeLbl.Content = welcometext;
             InitializeComponent();
         }
-
+        this.Controls.Find(ArrivalText).Text = Value;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(storedLuggage != null) 

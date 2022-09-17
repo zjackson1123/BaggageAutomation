@@ -24,6 +24,5 @@ namespace BaggageAutomation
         public string Owner { get; set; }
         public int Location { get; set; }
         public string Destination { get; set; }
-
     }
 }

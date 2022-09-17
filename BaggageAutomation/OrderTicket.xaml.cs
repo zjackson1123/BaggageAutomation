@@ -57,7 +57,13 @@ namespace BaggageAutomation
                 ticket.Destination = ticketInfo[2];
                 string filepath = CheckedIn(ticket);           
             }
-            this.Close();          
+
+            Ticket.Airline = AirlineComboBox.Text;
+            Ticket.Name = NameText.Text;
+            StartFlight sf = new StartFlight();
+            sf.WindowState = WindowState.Maximized;
+            this.Close();
+            sf.ShowDialog();
         }
     }
 }
