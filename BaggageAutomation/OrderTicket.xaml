@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BaggageAutomation"
         mc:Ignorable="d"
         Title="OrderTicket" Height="450" Width="800">
-    <Grid Background="#FF36393E">
+    <Grid Background="#FF272537">
         <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Left" Margin="53,45,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="AirlineLabel" Content="Airline" HorizontalAlignment="Left" Margin="55,114,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ComboBox x:Name="AirlineComboBox" HorizontalAlignment="Left" Margin="145,118,0,0" VerticalAlignment="Top" Width="120">
@@ -20,9 +20,8 @@
         </ComboBox>
         <Label x:Name="Destination" Content="Destination" HorizontalAlignment="Left" Margin="42,173,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="DestinationTextBox" HorizontalAlignment="Left" Margin="145,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="20"/>
-        <Button x:Name="Complete" Content="Complete" HorizontalAlignment="Left" Margin="191,320,0,0" VerticalAlignment="Top" Width="60" ButtonBase.Click="Complete_Click"/>
-        <TextBox x:Name="NameText" HorizontalAlignment="Left" Margin="145,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="20"/>
-        <Label x:Name="NameErrLbl" Content="Please Enter a First and Last name(A-Z)" HorizontalAlignment="Left" Margin="53,73,0,0" VerticalAlignment="Top" Width="255" Height="30" Visibility="Visible" Foreground="#FFED2727" FontSize="14"/>
-
+        <Button x:Name="Complete" Style="{StaticResource round_Btn}" Content="Complete" HorizontalAlignment="Left" Margin="313,0,0,10" VerticalAlignment="Bottom" Width="150" ButtonBase.Click="Complete_Click" Height="60"/>
+        <TextBox x:Name="NameText" HorizontalAlignment="Left" Margin="145,51,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="20"/>
+        <Label x:Name="NameErrLbl" Content="Please Enter a First and Last name(A-Z)" HorizontalAlignment="Left" Margin="53,73,0,0" VerticalAlignment="Top" Width="255" Height="30" Visibility="Hidden" Foreground="#FFED2727" FontSize="14"/>
     </Grid>
 </Window>

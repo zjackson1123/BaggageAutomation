@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BaggageAutomation"
         mc:Ignorable="d"
-        Title="reese is cool :)" Height="450" Width="800">
-    <Grid Background="#FF272537" UseLayoutRounding="False">
-        <Button x:Name="Scan_Btn" Content="Scan QR Code" HorizontalAlignment="Left" Margin="368,0,0,50" Click="Scan_Btn_Click" VerticalAlignment="Bottom" Height="41" Width="119" Style="{StaticResource round_Btn}"/>
-        <Image x:Name="ImageBox" HorizontalAlignment="Left" Height="183" Margin="281,32,0,0" VerticalAlignment="Top" Width="218"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="244,0,0,50" Height="41" Width="119" Click="Button_Click" VerticalAlignment="Bottom" Style="{StaticResource round_Btn}"/>
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="#FF272537">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="QRGeneration" Content="Buy Ticket" Style="{StaticResource round_Btn}" HorizontalAlignment="Center" Margin="0,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.205,0.016" AutomationProperties.IsColumnHeader="True" Click="Button_Click" Height="49" Width="124"/>
+        <Label Content="Welcome to Hartsfield Jackson Airport " HorizontalAlignment="Center" Margin="0,86,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Please click on the button to purchase a ticket!" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </Window>
