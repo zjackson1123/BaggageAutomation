@@ -1,0 +1,27 @@
+﻿<Window x:Class="BaggageAutomation.OrderTicket"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BaggageAutomation"
+        mc:Ignorable="d"
+        Title="OrderTicket" Height="450" Width="800">
+    <Grid Background="#FF36393E">
+        <Label x:Name="NameLabel" Content="Name" HorizontalAlignment="Left" Margin="53,45,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="AirlineLabel" Content="Airline" HorizontalAlignment="Left" Margin="55,114,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="AirlineComboBox" HorizontalAlignment="Left" Margin="145,118,0,0" VerticalAlignment="Top" Width="120">
+            <TextBox TextWrapping="Wrap" Text="Choose Airline" Width="120"/>
+            <ComboBoxItem Content="Delta" Name="Delta"></ComboBoxItem>
+            <ComboBoxItem Content="American" Name="American"></ComboBoxItem>
+            <ComboBoxItem Content="Spirit" Name="Spirit"></ComboBoxItem>
+            <ComboBoxItem Content="Southwest" Name="Southwest"></ComboBoxItem>
+            <ComboBoxItem Content="United" Name="United"></ComboBoxItem>
+            <ComboBoxItem Content="Alaska" Name="Alaska"></ComboBoxItem>
+        </ComboBox>
+        <Label x:Name="Destination" Content="Destination" HorizontalAlignment="Left" Margin="42,173,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="DestinationTextBox" HorizontalAlignment="Left" Margin="145,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="20"/>
+        <Button x:Name="Complete" Content="Complete" HorizontalAlignment="Left" Margin="191,320,0,0" VerticalAlignment="Top" Width="60" ButtonBase.Click="Complete_Click"/>
+        <TextBox x:Name="NameText" HorizontalAlignment="Left" Margin="145,48,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Height="20"/>
+
+    </Grid>
+</Window>
