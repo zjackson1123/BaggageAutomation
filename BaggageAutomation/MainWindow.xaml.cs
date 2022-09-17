@@ -32,6 +32,7 @@ namespace BaggageAutomation
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowState = WindowState.Maximized;
         }
 
         private void Scan_Btn_Click(object sender, RoutedEventArgs e)
@@ -54,6 +55,17 @@ namespace BaggageAutomation
 
                 }
             }
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            OrderTicket ot = new OrderTicket();
+            ot.WindowState = WindowState.Maximized;
+            ot.ShowDialog();
+            string Name = OrderTicket.Ticket.Name;
+            string Airline = OrderTicket.Ticket.Airline;
+            //ImageBox.Source = CheckedIn(ref AllLuggage, Airline, Name);
 
         }
     }

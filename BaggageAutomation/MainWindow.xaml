@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BaggageAutomation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FF36393E">
-        <Button x:Name="Scan_Btn" Content="Scan QR Code" HorizontalAlignment="Center" Margin="0,344,0,0" VerticalAlignment="Top" Click="Scan_Btn_Click"/>
-        <Image x:Name="ImageBox" HorizontalAlignment="Left" Height="183" Margin="281,42,0,0" VerticalAlignment="Top" Width="218"/>
+        Title="reese is cool :)" Height="450" Width="800">
+    <Grid Background="#FF272537" UseLayoutRounding="False">
+        <Button x:Name="Scan_Btn" Content="Scan QR Code" HorizontalAlignment="Left" Margin="368,0,0,50" Click="Scan_Btn_Click" VerticalAlignment="Bottom" Height="41" Width="119" Style="{StaticResource round_Btn}"/>
+        <Image x:Name="ImageBox" HorizontalAlignment="Left" Height="183" Margin="281,32,0,0" VerticalAlignment="Top" Width="218"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="244,0,0,50" Height="41" Width="119" Click="Button_Click" VerticalAlignment="Bottom" Style="{StaticResource round_Btn}"/>
 
     </Grid>
 </Window>
