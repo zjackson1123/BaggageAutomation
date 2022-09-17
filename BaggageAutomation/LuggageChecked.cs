@@ -11,31 +11,34 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Xaml.Schema;
 using System.Windows;
+using static BaggageAutomation.SQL_Operations;
+using static BaggageAutomation.OrderTicket;
 
 namespace BaggageAutomation
 {
     public class LuggageChecked
     {
-        public static BitmapImage CheckedIn(ref LuggageItem[] currentArr, string airline, string owner)
+        public static string CheckedIn(Ticket ticket)
         {
-            LuggageItem lug = new LuggageItem();
-            lug.Airline = airline;
-            lug.Owner = owner;
-            LocFind(ref currentArr, out int? index);
+            LuggageDataItem lug = new LuggageDataItem();
+            lug.Airline = ticket.Airline;
+            lug.Owner = ticket.Name;
+            lug.Destination = ticket.Destination;  
+            LocFind(out int? index);
             if (index.HasValue)
             {
                 lug.Location = (int)index;
             }
             return QRGeneration(lug);
         }
-        public static void LocFind(ref LuggageItem[] currentArr, out int? index)
+        public static void LocFind(out int? index)
         {
             index = null;
-            for (int i = 0; i < currentArr.Length; i++)
+            for (int i = 0; i < LugColl.Length; i++)
             {
-                if (currentArr[i] != null)
+                if (LugColl[i] != null)
                 {
-                    currentArr[i] = new LuggageItem();
+                    LugColl[i] = new LuggageDataItem();
                     index = i;
                     break;
                 }                
@@ -45,26 +48,30 @@ namespace BaggageAutomation
                 MessageBox.Show("No Locations Remain in Destination Airport");
             }
         }
-        public static BitmapImage QRGeneration(LuggageItem lug)
+        public static string QRGeneration(LuggageDataItem lug)
         {
 
             string QRstring = Guid.NewGuid().ToString();
             QRstring += " | " + lug.Airline + " | " + lug.Owner + " | " + lug.Location;
             GeneratedBarcode QRCode = QRCodeWriter.CreateQrCode(QRstring, 500, QRCodeWriter.QrErrorCorrectionLevel.Medium);
-            System.Drawing.Image QR = (System.Drawing.Image)QRCode.Image;
-            Bitmap QRBit = new Bitmap(QR);
+            System.Drawing.Image QRImage = (System.Drawing.Image)QRCode.Image;
+            Bitmap QRBit = new Bitmap(QRImage);
             BitmapImage bmp = new BitmapImage();
+            string filepath = Directory.GetCurrentDirectory() + "QRcode" + lug.Location;
             using (MemoryStream ms = new MemoryStream())
             {
-                QRBit.Save(ms, ImageFormat.Png);
-                ms.Position = 0;
-                bmp.BeginInit();
-                bmp.StreamSource = ms;
-                bmp.CacheOption = BitmapCacheOption.OnLoad;
-                bmp.EndInit();
-
+                
+                QRBit.Save(filepath, ImageFormat.Png);
+                //QRBit.Save(ms, ImageFormat.Png);
+                //ms.Position = 0;
+                //bmp.BeginInit();
+                //bmp.StreamSource = ms;
+                //bmp.CacheOption = BitmapCacheOption.OnLoad;
+                //bmp.EndInit();
             }
-            return bmp;
+            
+            
+            return filepath;
         }
 
     }

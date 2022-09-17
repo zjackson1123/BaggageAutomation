@@ -14,42 +14,50 @@ using System.Windows.Shapes;
 using static BaggageAutomation.SQL_Operations;
 using static BaggageAutomation.LuggageChecked;
 using Microsoft.Data.SqlClient;
+using System.Security.RightsManagement;
+using System.ComponentModel;
+using System.Windows.Automation;
 
-namespace BaggageAutomation{
+namespace BaggageAutomation
+{
 #pragma warning disable CS8601
     /// <summary>
     /// Interaction logic for OrderTicket.xaml
     /// </summary>
     public partial class OrderTicket : Window
     {
-        public static SqlConnection Conn = GetConnection();
-        LuggageItem[] AllLuggage = GetAllLuggage(Conn);
-        public static class Ticket
-        {
-            public static string Airline { get; set; }
-            public static string Name { get; set; }
-        }
+        public Ticket ticket;
         public OrderTicket()
         {
-            InitializeComponent();
+            InitializeComponent();        
         }
+        public class Ticket
+        {
+            //public Guid TicketID = Guid.NewGuid();
+            public string Airline { get; set; }
+            public string Name { get; set; }
+            public string Destination { get; set; }
+        }     
+
         private void Complete_Click(object sender, RoutedEventArgs e)
         {
-            if (NameText.Text == String.Empty)
+            string[] ticketInfo = new string[] { NameText.Text, AirlineComboBox.Text, DestinationTextBox.Text };
+            bool validInput = true;
+            for (int i = 0; i < ticketInfo.Length; i++)
             {
-                NameErrLbl.Visibility = Visibility.Visible;
-                return;
+                if (ticketInfo[i] == string.Empty)
+                {
+                    validInput = false;
+                }
             }
-            else
+            if (validInput)
             {
-                NameErrLbl.Visibility = Visibility.Hidden;
-                Ticket.Airline = AirlineComboBox.Text;
-                Ticket.Name = NameText.Text;
-                this.Close();
+                ticket.Name = ticketInfo[0];
+                ticket.Airline = ticketInfo[1];
+                ticket.Destination = ticketInfo[2];
+                string filepath = CheckedIn(ticket);           
             }
-            Ticket.Airline = AirlineComboBox.Text;
-            Ticket.Name = NameText.Text;
-            this.Close();
+            this.Close();          
         }
     }
 }
