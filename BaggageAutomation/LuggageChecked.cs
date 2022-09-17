@@ -16,9 +16,9 @@ namespace BaggageAutomation
 {
     public class LuggageChecked
     {
-        public static BitmapImage CheckedIn(ref LuggageItem[] currentArr, string airline, string owner)
+        public static BitmapImage CheckedIn(ref LuggageDataItem[] currentArr, string airline, string owner)
         {
-            LuggageItem lug = new LuggageItem();
+            LuggageDataItem lug = new LuggageDataItem();
             lug.Airline = airline;
             lug.Owner = owner;
             LocFind(ref currentArr, out int? index);
@@ -28,14 +28,14 @@ namespace BaggageAutomation
             }
             return QRGeneration(lug);
         }
-        public static void LocFind(ref LuggageItem[] currentArr, out int? index)
+        public static void LocFind(ref LuggageDataItem[] currentArr, out int? index)
         {
             index = null;
             for (int i = 0; i < currentArr.Length; i++)
             {
                 if (currentArr[i] != null)
                 {
-                    currentArr[i] = new LuggageItem();
+                    currentArr[i] = new LuggageDataItem();
                     index = i;
                     break;
                 }                
@@ -45,7 +45,7 @@ namespace BaggageAutomation
                 MessageBox.Show("No Locations Remain in Destination Airport");
             }
         }
-        public static BitmapImage QRGeneration(LuggageItem lug)
+        public static BitmapImage QRGeneration(LuggageDataItem lug)
         {
 
             string QRstring = Guid.NewGuid().ToString();

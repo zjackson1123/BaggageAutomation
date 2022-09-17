@@ -22,8 +22,6 @@ namespace BaggageAutomation{
     /// </summary>
     public partial class OrderTicket : Window
     {
-        public static SqlConnection Conn = GetConnection();
-        LuggageItem[] AllLuggage = GetAllLuggage(Conn);
         public static class Ticket
         {
             public static string Airline { get; set; }
@@ -50,6 +48,9 @@ namespace BaggageAutomation{
             Ticket.Airline = AirlineComboBox.Text;
             Ticket.Name = NameText.Text;
             this.Close();
+            StartFlight sf = new StartFlight();
+            sf.WindowState = WindowState.Maximized;
+            sf.ShowDialog();
         }
     }
 }

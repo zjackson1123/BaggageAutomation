@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace BaggageAutomation
 {
@@ -23,7 +24,7 @@ namespace BaggageAutomation
         {
             InitializeComponent();
         }
-
+        this.Controls.Find(ArrivalText).Text = Value;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace BaggageAutomation
 {
 #pragma warning disable CS8618
-    public class LuggageItem
+    public class LuggageDataItem
     {
-        public LuggageItem() { }
-        public LuggageItem(string luggageID, string airline, string owner, int location)
+        public LuggageDataItem() { }
+        public LuggageDataItem(string luggageID, string airline, string owner, int location)
         {
             LuggageID = luggageID;
             Airline = airline;
